@@ -5,6 +5,7 @@ import * as actions from "../actions";
 
 //import components
 import Header from "./Header";
+// eslint-disable-next-line
 import { FETCH_USER } from "./../actions/types";
 import Landing from "./Landing";
 

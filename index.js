@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
+const bodyParser = require("body-parser");
 require("./models/User");
 require("./services/passport");
 const keys = require("./config/keys");
@@ -21,11 +22,14 @@ app.use(
   })
 );
 
+app.use(bodyParser.json());
+
 app.use(passport.initialize());
 app.use(passport.session());
 
-//Require auth routes
+//Require routes
 require("./routes/authRoutes")(app);
+require("./routes/billingRoutes")(app);
 
 //////////////////
 ///SERVER SETUP///
