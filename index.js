@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
 const bodyParser = require("body-parser");
+require("./models/Survey");
 require("./models/User");
 require("./services/passport");
 const keys = require("./config/keys");
@@ -30,6 +31,7 @@ app.use(passport.session());
 //Require routes
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
+require("./routes/surveyRoutes")(app);
 
 //Behaviour for production env.
 if (process.env.NODE_ENV === "production") {
